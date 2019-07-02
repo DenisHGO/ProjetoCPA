@@ -1,0 +1,33 @@
+package application;
+
+import java.awt.Button;
+import java.awt.Desktop.Action;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
+
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import model.Musicas;
+
+public class FMXLInicialController implements Initializable {
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@FXML
+	public Button idmusicas;
+	
+	@FXML
+	public ArrayList<Musicas> idlistamusicas;
+	
+	@FXML
+	public void acaoBotaoMusicas(Action event){
+		Musicas Musi1 = null;
+		idlistamusicas.add(1, Musi1);
+	}
+
+}
