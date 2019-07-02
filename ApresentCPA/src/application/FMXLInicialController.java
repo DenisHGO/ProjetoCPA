@@ -1,7 +1,11 @@
 package application;
 
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -14,6 +18,9 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Orientation;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
+
 
 public class FMXLInicialController implements Initializable {
 
@@ -24,12 +31,16 @@ public class FMXLInicialController implements Initializable {
 	@FXML
 	private ListView<String>  idlistamusicas;
 	
+	@FXML
+	private TextFlow idletramusicas;
+ 	
 	ArrayList filesNames = new ArrayList();
+	ArrayList textoMusicas = new ArrayList();
 	
 	public void acaoBotaoMusicas(ActionEvent event){
 		
-		//String filePath = "C:\\Users\Denis\Pictures";
-		File arquivo = new File("C:\\Users\\Denis\\Pictures");
+		//File arquivo = new File("C:\\Users\\Denis\\Pictures");
+		File arquivo = new File("C:\\Users\\denis.h.oliveira\\OneDrive - Accenture\\Documents\\ProjetoCPA\\ApresentCPA\\src\\musicas");
 		File[] files = arquivo.listFiles();
 				
 		
@@ -50,6 +61,25 @@ public class FMXLInicialController implements Initializable {
 		
 	}
 
+	public void acaoExibirMusicas(ActionEvent event) throws IOException{	
+
+		BufferedReader buffRead = new BufferedReader(new FileReader("C:\\Users\\denis.h.oliveira\\OneDrive - Accenture\\Documents\\ProjetoCPA\\ApresentCPA\\src\\musicas\\Eu sou Livre.txt"));
+		String linha = "";
+		idletramusicas.getChildren().clear();
+		while (true) {
+			if (linha != null) {
+
+				//list.add(linha);
+				System.out.println(linha);
+
+			} else
+				break;
+			linha = buffRead.readLine();            
+			Text text1 = new Text(linha);
+			idletramusicas.getChildren().add(text1);
+		}   
+		buffRead.close();
+	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
