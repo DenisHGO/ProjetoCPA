@@ -35,7 +35,7 @@
       <Button fx:id="idmusicas" layoutX="14.0" layoutY="49.0" mnemonicParsing="false" onAction="#acaoBotaoMusicas" text="Músicas" />
       <ListView fx:id="idlistamusicas" layoutX="14.0" layoutY="87.0" prefHeight="274.0" prefWidth="221.0" />
       <Label layoutX="310.0" layoutY="66.0" text="Letra" />
-      <TextFlow fx:id="idletramusicas" layoutX="310.0" layoutY="87.0" prefHeight="274.0" prefWidth="271.0" AnchorPane.bottomAnchor="39.0" AnchorPane.leftAnchor="310.0" AnchorPane.rightAnchor="19.0" AnchorPane.topAnchor="87.0">
+      <TextFlow fx:id="idletramusicas" layoutX="310.0" layoutY="87.0" maxHeight="275.0" maxWidth="270.0" prefHeight="275.0" prefWidth="270.0" textAlignment="JUSTIFY" AnchorPane.bottomAnchor="39.0" AnchorPane.leftAnchor="310.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="87.0">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
