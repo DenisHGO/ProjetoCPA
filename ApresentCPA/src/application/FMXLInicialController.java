@@ -3,7 +3,6 @@ package application;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
@@ -18,8 +17,8 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Orientation;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
 
 
 public class FMXLInicialController implements Initializable {
@@ -32,7 +31,7 @@ public class FMXLInicialController implements Initializable {
 	private ListView<String>  idlistamusicas;
 	
 	@FXML
-	private TextFlow idletramusicas;
+	private VBox idletramusicas;
  	
 	ArrayList filesNames = new ArrayList();
 	ArrayList textoMusicas = new ArrayList();
@@ -48,7 +47,7 @@ public class FMXLInicialController implements Initializable {
 		for (int j = files.length; i < j; i++) {
 			File arquivos = files[i];
 			filesNames.add(arquivos.getName());
-			//System.out.println(arquivos.getName());
+			
 		}
 		
 		
@@ -66,6 +65,7 @@ public class FMXLInicialController implements Initializable {
 		BufferedReader buffRead = new BufferedReader(new FileReader("C:\\Users\\denis.h.oliveira\\OneDrive - Accenture\\Documents\\ProjetoCPA\\ApresentCPA\\src\\musicas\\Eu sou Livre.txt"));
 		String linha = "";
 		idletramusicas.getChildren().clear();
+		int i = 0;
 		while (true) {
 			if (linha != null) {
 
@@ -76,7 +76,16 @@ public class FMXLInicialController implements Initializable {
 				break;
 			linha = buffRead.readLine();            
 			Text text1 = new Text(linha);
-			idletramusicas.getChildren().add(text1);
+			textoMusicas.add(text1);
+		
+			//|| textoMusicas.size() == 1
+			if (text1.getText().equals("") ){
+				idletramusicas.getChildren().add(new Button("test2")) ;
+			}else {
+				idletramusicas.getChildren().add(new Button("test1")) ;
+		}
+			
+			//idletramusicas.getChildren().add(text1);
 		}   
 		buffRead.close();
 	}
