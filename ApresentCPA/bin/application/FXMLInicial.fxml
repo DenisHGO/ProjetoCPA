@@ -33,7 +33,7 @@
       <Button fx:id="idmusicas" layoutX="14.0" layoutY="49.0" mnemonicParsing="false" onAction="#acaoBotaoMusicas" text="Músicas" />
       <ListView fx:id="idlistamusicas" layoutX="14.0" layoutY="87.0" prefHeight="521.0" prefWidth="271.0" />
       <Label layoutX="310.0" layoutY="66.0" text="Letra" />
-      <Button layoutX="324.0" layoutY="37.0" mnemonicParsing="false" onAction="#acaoExibirMusicas" text="Exibir Musica" />
+      <Button layoutX="183.0" layoutY="621.0" mnemonicParsing="false" onAction="#acaoExibirMusicas" text="Carregar Musica" />
       <VBox fx:id="idletramusicas" layoutX="310.0" layoutY="83.0" prefHeight="664.0" prefWidth="695.0" />
    </children>
 </AnchorPane>
