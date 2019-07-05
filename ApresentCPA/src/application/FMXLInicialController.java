@@ -1,13 +1,11 @@
 package application;
 
-import java.awt.TextField;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -16,12 +14,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Orientation;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
 
 public class FMXLInicialController implements Initializable {
 
@@ -33,18 +30,22 @@ public class FMXLInicialController implements Initializable {
 
 	ObservableList listMusicas = FXCollections.observableArrayList();
 	
+	ObservableList teste2 = FXCollections.observableArrayList();
+	
+	String helper = System.getProperty("user.dir");
 
 	@FXML
-	private VBox idletramusicas;
+	private ScrollPane idletramusicas;
 
 	ArrayList filesNames = new ArrayList();
 	ArrayList textoMusicas = new ArrayList();
 
 	public void acaoBotaoMusicas(ActionEvent event) {
 
-		// File arquivo = new File("C:\\Users\\Denis\\Pictures");
-		File arquivo = new File(
-				"C:\\Users\\denis.h.oliveira\\OneDrive - Accenture\\Documents\\ProjetoCPA\\ApresentCPA\\src\\musicas");
+		File arquivo = new File(helper+"/src/musicas");
+		/*File arquivo = new File(
+				"C:\\Users\\denis.h.oliveira\\OneDrive - Accenture\\Documents\\ProjetoCPA\\ApresentCPA\\src\\musicas");*/
+		
 		File[] files = arquivo.listFiles();
 		filesNames.clear();
 
@@ -74,11 +75,15 @@ public class FMXLInicialController implements Initializable {
 
 		String musicaSelecionada = idlistamusicas.getSelectionModel().getSelectedItem();
 		
-		BufferedReader buffRead = new BufferedReader(new FileReader(
-				"C:\\Users\\denis.h.oliveira\\OneDrive - Accenture\\Documents\\ProjetoCPA\\ApresentCPA\\src\\musicas\\"+musicaSelecionada));
+		/*BufferedReader buffRead = new BufferedReader(new FileReader(
+				"C:\\Users\\denis.h.oliveira\\OneDrive - Accenture\\Documents\\ProjetoCPA\\ApresentCPA\\src\\musicas\\"+musicaSelecionada));*/
+		
+		BufferedReader buffRead = new BufferedReader(new FileReader(helper+"/src/musicas/"+musicaSelecionada));
 		String linha = "";
-		idletramusicas.getChildren().clear();
-		int i = 0;
+		//idletramusicas --- clear
+		ArrayList<String> textoMusicasTemp = new ArrayList<String>();
+		//ArrayList<Node> nodes = new ArrayList<Node>();
+		
 		while (true) {
 			if (linha != null) {
 				// list.add(linha);
@@ -87,17 +92,23 @@ public class FMXLInicialController implements Initializable {
 				break;
 			linha = buffRead.readLine();
 			Text text1 = new Text(linha);
-			textoMusicas.add(text1);
-
-			// || textoMusicas.size() == 1
-			if (text1.getText().equals("")) {
-				idletramusicas.getChildren().add(new Button("test1"));
-			} else {
-				idletramusicas.getChildren().add(new Button(text1.toString()));
-			}
-
-			// idletramusicas.getChildren().add(text1);
+			textoMusicas.add(linha);			
+			
 		}
+		
+		
+		for(int i=0; i<textoMusicas.size();i++){
+			
+			if(textoMusicas.get(i).toString().equals("")){	
+			
+								
+				//idletramusicas.getChildren().add(new Button("test1"));
+			}else{				
+				textoMusicasTemp.add(textoMusicas.get(i).toString());
+				//idletramusicas.getChildren().add(new Button(textoMusicas.get(i).toString()));
+			}
+		}
+		
 		buffRead.close();
 	}
 	
