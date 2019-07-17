@@ -1,17 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.FMXLInicialController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" styleClass="parent" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.FMXLInicialController">
    <children>
-      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="1024.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane layoutX="1.0" layoutY="29.0" prefHeight="732.0" prefWidth="295.0" styleClass="sidebar" stylesheets="@application.css" AnchorPane.leftAnchor="8.0">
+         <effect>
+            <DropShadow color="#b59797" height="43.24" offsetX="8.0" radius="22.2325" width="47.69" />
+         </effect>
+         <children>
+            <JFXButton fx:id="idmusicas" alignment="BASELINE_CENTER" layoutX="7.0" layoutY="14.0" onAction="#acaoBotaoMusicas" prefHeight="36.0" prefWidth="96.0" styleClass="buttons" text="Músicas">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font></JFXButton>
+            <JFXButton fx:id="idcarregamusica" layoutX="155.0" layoutY="669.0" onAction="#acaoExibirMusicas" prefHeight="36.0" prefWidth="119.0" styleClass="buttons" text="Carregar Música">
+               <font>
+                  <Font name="Century Gothic" size="12.0" />
+               </font></JFXButton>
+            <TextField fx:id="idsearch" disable="true" layoutX="6.0" layoutY="97.0" onAction="#filtrarMusicas" onMouseDragEntered="#filtrarMusicas" prefHeight="36.0" prefWidth="271.0" promptText="Pesquisar" />
+         </children>
+      </Pane>
+      <MenuBar layoutX="1.0" prefHeight="25.0" prefWidth="1024.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
@@ -30,10 +51,32 @@
           </Menu>
         </menus>
       </MenuBar>
-      <Button fx:id="idmusicas" layoutX="14.0" layoutY="49.0" mnemonicParsing="false" onAction="#acaoBotaoMusicas" text="Músicas" />
-      <ListView fx:id="idlistamusicas" layoutX="14.0" layoutY="87.0" prefHeight="521.0" prefWidth="271.0" />
-      <Label layoutX="310.0" layoutY="66.0" text="Letra" />
-      <Button layoutX="183.0" layoutY="621.0" mnemonicParsing="false" onAction="#acaoExibirMusicas" text="Carregar Musica" />
-      <ScrollPane fx:id="idletramusicas" layoutX="310.0" layoutY="87.0" prefHeight="660.0" prefWidth="700.0" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="310.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="87.0" />
+      <ListView fx:id="idlistamusicas" layoutX="14.0" layoutY="161.0" prefHeight="521.0" prefWidth="271.0" />
+      <Pane layoutX="316.0" layoutY="30.0" prefHeight="72.0" prefWidth="700.0" styleClass="sidebar">
+         <effect>
+            <DropShadow color="#8a6c6c" offsetX="5.0" radius="13.705" width="35.82" />
+         </effect>
+         <children>
+            <Label fx:id="idtituloMusica" layoutX="47.0" layoutY="44.0" prefHeight="30.0" prefWidth="390.0" text="Label">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Label layoutX="319.0" layoutY="80.0" text="Letra:" textOverrun="LEADING_ELLIPSIS">
+         <font>
+            <Font name="Century Gothic" size="14.0" />
+         </font>
+      </Label>
+      <ScrollPane fx:id="idscroll" fitToWidth="true" layoutX="316.0" layoutY="112.0" prefHeight="642.0" prefWidth="500.0" styleClass="paneMusica" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="316.0" AnchorPane.topAnchor="112.0">
+         <content>
+            <FlowPane fx:id="idletramusicas" prefHeight="650.0" prefWidth="680.0" styleClass="paneMusica" />
+         </content>
+      </ScrollPane>
+      <JFXButton fx:id="idbuttonApresentar" disable="true" layoutX="885.0" layoutY="48.0" onAction="#apresentarMusica" prefHeight="36.0" prefWidth="119.0" styleClass="buttons" text="Apresentar">
+         <font>
+            <Font name="Century Gothic" size="12.0" />
+         </font></JFXButton>
    </children>
 </AnchorPane>

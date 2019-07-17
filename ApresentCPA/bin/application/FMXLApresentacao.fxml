@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+
+<AnchorPane prefHeight="768.0" prefWidth="1253.0" styleClass="parent_apresenta" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ApresentacaoController">
+   <children>
+      <JFXButton fx:id="idNext" layoutX="938.0" layoutY="712.0" styleClass="buttons" stylesheets="@application.css" text="Proximo" AnchorPane.bottomAnchor="31.0" AnchorPane.rightAnchor="22.0" />
+      <JFXButton fx:id="idBack" layoutX="872.0" layoutY="712.0" styleClass="buttons" stylesheets="@application.css" text="Anterior" AnchorPane.bottomAnchor="31.0" AnchorPane.rightAnchor="90.0" />
+      <JFXButton fx:id="idTelaFull" layoutX="942.0" layoutY="25.0" onAction="#apresentarFullScreen" styleClass="buttons" stylesheets="@application.css" text="Tela Full" AnchorPane.rightAnchor="22.0" />
+      <FlowPane fx:id="idAreaExibicao" layoutX="283.0" layoutY="69.0" prefHeight="630.0" prefWidth="949.0" styleClass="parent_apresenta" stylesheets="@application.css" AnchorPane.bottomAnchor="69.0" AnchorPane.leftAnchor="283.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="69.0">
+         <effect>
+            <DropShadow color="WHITE" radius="29.2725" width="98.09" />
+         </effect></FlowPane>
+      <ScrollPane fx:id="idletramusicasApresentaScroll" layoutX="14.0" layoutY="69.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="252.0" AnchorPane.bottomAnchor="69.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="69.0">
+         <content>
+            <FlowPane fx:id="idletramusicasApresenta" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="227.0" />
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>
